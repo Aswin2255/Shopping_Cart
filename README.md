@@ -1,2 +1,2 @@
-# E-comerse frontend (react + redux + vite)
+# E-commerse frontend (react + redux + vite)
 

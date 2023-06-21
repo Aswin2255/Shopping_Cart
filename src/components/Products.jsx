@@ -42,7 +42,7 @@ function Products({ item }) {
         <div className="mt-2 mb-5 flex items-center justify-between">
           <p>
             <span className="text-3xl font-bold text-slate-900">
-              ${item.price}
+              ${Math.floor(item.price)}
             </span>
           </p>
           <div className="flex items-center">

@@ -11,7 +11,7 @@ const Cartslice = createSlice({
     Addtocart(state, action) {
       (state.cartproductsid[action.payload.id] = true),
         state.cartproducts.push(action.payload),
-        (state.totalprice = state.totalprice + action.payload.price),
+        (state.totalprice = Math.floor(Math.floor(state.totalprice) +Math.floor(action.payload.price))),
         state.cartcount++;
     },
     incrementqnty(state, action) {
@@ -20,7 +20,7 @@ const Cartslice = createSlice({
           item.qnty++;
         }
       });
-      state.totalprice = state.totalprice + action.payload.price;
+      state.totalprice = Math.floor(Math.floor(state.totalprice )+ Math.floor(action.payload.price));
     },
     decrementqnty(state, action) {
       state.cartproducts.forEach((item) => {
@@ -28,7 +28,7 @@ const Cartslice = createSlice({
           item.qnty--;
         }
       });
-      state.totalprice = state.totalprice - action.payload.price;
+      state.totalprice = Math.floor(Math.floor(state.totalprice) - Math.floor(action.payload.price));
     },
     remove(state, action) {
       state.cartproducts = state.cartproducts.filter((e) => {
@@ -38,7 +38,7 @@ const Cartslice = createSlice({
       });
       state.cartcount--;
       state.totalprice =
-        state.totalprice - action.payload.price * action.payload.qnty;
+        Math.floor(Math.floor(state.totalprice) - Math.floor(action.payload.price)* Math.floor(action.payload.qnty));
         state.cartproductsid[action.payload.id] = false;
     },
   },
